@@ -1,55 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-import React,{Component} from 'react'; // per usare React.Component devo importare questi "moduli"
-import MapExample from './components/MapExample';
-import NameForm from './components/NameForm';
-import EssayForm from './components/EssayForm';
-import FlavorForm from './components/SelectFlavor';
-import Reservation from './components/MultipleInput';
-import Calculator from './components/Calculator';
-import Example from './components/ExampleStateHook';
-import Clock from './components/Clock';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
+
+import Home from './pages/Home';
+import Layout from "./pages/Layout";
+import ClockPage from "./pages/ClockPage";
+import NameFormPage from "./pages/NameFormPage";
+import FlavorFormPage from "./pages/FlavorFormPage";
+import ReservationPage from "./pages/ReservationPage";
+import CalculatorPage from "./pages/CalculatorPage";
+import CountPage from "./pages/CountPage";
+import EssayFormPage from "./pages/EssayFormPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="clock" element={<ClockPage />} />
+        <Route path="nameForm" element={<NameFormPage />} />
+        <Route path="flavorForm" element={<FlavorFormPage />} />
+        <Route path="reservation" element={<ReservationPage />} />
+        <Route path="temperatura" element={<CalculatorPage />} />
+        <Route path="count" element={<CountPage />} />
+        <Route path="essayForm" element={<EssayFormPage />} />
+        {/* <Route path="*" element={<NoPage />} /> */}
 
-        <Clock />
-        <NameForm />
-        <br />
-        <FlavorForm />
-        <br />
-        <Reservation />
-        <br />
-        <Calculator />
-        <br />
-        <EssayForm />
-        <br />
-        <Example />
-        <br />
-        
-        <br />
-        <MapExample />
-        
-
-      </header>
-    </div>
+      </Route>
+    </Routes>
+  </BrowserRouter>
   );
 }
+
 
 export default App;

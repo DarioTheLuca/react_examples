@@ -33,7 +33,7 @@ class Reservation extends React.Component {
           </label>
           <br />
           <label>
-            Number of guests:
+            Number of guests:  
             <input
               name="numberOfGuests"
               type="number"
